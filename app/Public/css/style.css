@@ -1,0 +1,182 @@
+html, body {
+  background-color: rgb(222, 222, 231);
+  background-repeat: no-repeat;
+  /* Permite deslizar cuando hago clicks en los links del nav */
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  margin: 0; /* Asegura que no haya márgenes por defecto en el body */
+}
+
+.text1{
+ font-family: Georgia, 'Times New Roman', Times, serif;
+ font-size: 15px;
+}
+
+header {
+  header {
+      background-color: #333; /* Color de fondo del encabezado */
+      color: white; /* Color del texto del encabezado */
+      text-align: center; /* Centrar el texto en el encabezado */
+      padding: 10px; /* Reduce el espaciado interno */
+      font-size: 16px; /* Reduce el tamaño de fuente */
+      display: grid;
+  }
+  
+}
+
+
+#cerrar{
+text-align: right;
+margin-top: -30px;
+text-decoration: none;
+color: #ccc;
+
+
+
+}
+
+
+nav{
+display: flex; /* Para que los elementos se muestren en línea */
+background-color: #00008b;
+
+}
+
+
+
+nav a{
+
+color: white;
+font-size: 15px;
+font-family: Times New Roman;
+margin-right: 23px;
+text-decoration: none;
+padding: 10px; /* Espaciado interno para los enlaces */
+margin-top: 10px;
+
+}
+
+nav a:hover{
+color: rgb(19, 18, 19)
+
+}
+
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+/* Añade estilos adicionales según sea necesario */
+
+/* Estilos básicos para el botón */
+.boton-ingresar {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color:  rgb(26, 105, 110); /* Color de fondo */
+  color: #fff; /* Color del texto */
+  text-decoration: none; /* Quitar subrayado de enlace */
+  border-radius: 5px; /* Esquinas redondeadas */
+  transition: background-color 0.3s; /* Efecto de transición en el cambio de color de fondo */
+  cursor: pointer;
+}
+
+/* Estilo al pasar el ratón sobre el botón */
+.boton-ingresar:hover {
+  background-color: #6845a0; /* Cambia el color de fondo al pasar el ratón sobre el botón */
+}
+
+
+form {
+  width: 800px; /* Ajusta el ancho del formulario según tus necesidades */
+  margin: 0 auto; /* Esto centra el formulario horizontalmente */
+  padding: 20px;
+  background-color: rgb(40, 7, 94);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+label {
+  display: inline-block;
+  width: 150px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #fff;
+}
+
+input {
+  display: inline-block;
+  width: calc(100% - 160px);
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #504f4f;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  background-color: #08626e;
+  color: #fff;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: auto; /* Puedes establecer un ancho fijo si lo deseas */
+  text-align: center;
+}
+
+
+input[type="submit"]:hover {
+  background-color: #31adaf;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.table th, .table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #0c0c0c;
+}
+
+.table th {
+  background-color: #080808;
+  color: hsl(0, 0%, 100%);
+}
+
+.table tr:nth-child(even) {
+  background-color: #f1e1e1;
+}
+
+
+.mi-formulario {
+  /* Agrega tus estilos personalizados aquí */
+  margin: 20px;
+  padding: 10px;
+  background-color: #111111;
+}
+
+.mi-formulario label {
+  /* Estilos para las etiquetas */
+  font-weight: bold;
+}
+
+.mi-formulario input,
+.mi-formulario select {
+  /* Estilos para los campos de entrada y select */
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.mi-formulario input[type="submit"] {
+  /* Estilos específicos para el botón de enviar */
+  background-color: #4caf50;
+  color: rgb(10, 10, 10);
+  cursor: pointer;
+}
+
+/* Puedes agregar más estilos según sea necesario */
