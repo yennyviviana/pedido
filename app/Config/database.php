@@ -1,7 +1,7 @@
 <?php
 
 $host = 'localhost';
-$dbname = 'app_pedido';
+$dbname = 'pedido_sistema';
 $username = 'root';
 $password = '';
 

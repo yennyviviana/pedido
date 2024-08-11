@@ -6,9 +6,8 @@ class SentenciaModel
     private $conexion;
     private $tabla;
     private $resultado;
-    private  $consulta;
 
-    // Función constructora
+    // Constructor
     public function __construct($sentencia, $conexion, $tabla)
     {
         $this->sentencia = $sentencia;
@@ -16,13 +15,13 @@ class SentenciaModel
         $this->tabla = $tabla;
     }
 
-
+    // Ejecutar la consulta
     public function ejecutarConsulta()
-{
-    $this->resultado = mysqli_query($this->conexion, $this->sentencia) or die('No se ejecuto la consulta a la tabla '. $this->tabla);
-}
+    {
+        $this->resultado = mysqli_query($this->conexion, $this->sentencia) or die('No se ejecutó la consulta a la tabla ' . $this->tabla . ': ' . mysqli_error($this->conexion));
+    }
 
-
+    // Obtener el resultado de la consulta
     public function getResultado()
     {
         return $this->resultado;
