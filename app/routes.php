@@ -1,6 +1,7 @@
 <?php
 require_once('Config/database.php');
 require_once('Models/sentenciaModel.php');
+require_once('Views/menu.php');
 require_once('Views/head.php');
 
 ?>

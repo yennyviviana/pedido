@@ -1,91 +1,118 @@
 <?php
-require_once('Config/database.php');
-require_once('Models/sentenciaModel.php');
-require_once('Controllers/validacionController.php');
+require 'Config/database.php';
 session_start();
+
+
+if($_POST)
+{
+
+$usuario = $_POST['usuario'];
+ $clave = $_POST['clave'];
+
+$sql = "SELECT * FROM usuario WHERE usuario='$usuario'";
+//echo $sql;
+ $resultado = $conexion->query($sql);
+ $num = $resultado->num_rows;
+
+if($num>0)
+ {
+ $row = $resultado->fetch_assoc();
+ $password_bd = $row['clave'];
+
+$password_contrasena = sha1($clave);
+
+if($password_bd == $password_contrasena)
+ {
+ // Establecer variables de sesión
+ $_SESSION['id_usuario'] = $row['id_usuario'];
+ $_SESSION['usuario'] = $row['usuario'];
+ $_SESSION['email'] = $row['email'];
+ $_SESSION['tipo_usuario'] = $row['tipo_usuario'];
+
+if($row['tipo_usuario']==9)
+ {
+ 
+header("Location: routes.php");
+ }
+ elseif($row['tipo_usuario']==2)
+ {
+ header("Location: routes.php");
+ }
+ elseif($row['tipo_usuario']==3)
+ {
+ header("Location: routes.php");
+ }
+ elseif($row['tipo_usuario']==4)
+ {
+ header("Location: routes.php");
+ }
+ elseif($row['tipo_usuario']==5)
+ {
+ header("Location: routes.php");
+ }
+ elseif($row['tipo_usuario']==6)
+ {
+ header("Location: routes.php");
+ }
+ else
+ {
+ 
+header("Location: index.php");
+ }
+ }else
+ {
+ echo "La contraseña no coincide";
+ }
+ }else
+ {
+ echo "NO existe usuario";
+ }
+}
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App pedidos</title>
-    <link href="Public/css/style.css" type="text/css" rel="stylesheet">
-</head>
-<body>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+   integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <title>OptimizacionPro</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="public/css/style.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+
+        <div class="container">
     
-<div class="container">
 
-<form action="routes.php" method="POST">
-  <h1 class="text">Sistema de pedidos.</h1>
+    
+			<form method="POST"   action="<?php echo $_SERVER['PHP_SELF']; ?>">
+			
+    
+        <h2><i class="fa fa-sign-in-alt"></i><h2>Iniciar session</h2>
 
-  <div class="mi-formulario">
-  <div class="row">
-	        	<div class="col-md-6">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" class="form-control" required>
-  </div>
+        <label for="usuario"><i class="fa fa-envelope"></i>Usuario:</label>
+        <input type="text" id="usuario" name="usuario" required placeholder="usuario">
 
-  <div class="row">
-	        	<div class="col-md-6">
-    <label for="apellido">Apellido:</label>
-    <input type="text" id="apellido" name="apellido" class="form-control" required>
-  </div>
+        <label for="clave"><i class="fa fa-lock"></i>Clave:</label>
+        <input type="clave" id="clave" name="clave" required placeholder="ingrese clave">
 
-  <div class="row">
-	        	<div class="col-md-6">
-    <label for="direccion">Direccion:</label>
-    <input type="text" id="direccion" name="direccion" class="form-control" required>
-  </div>
+        <input type="submit" name="submit_login" value="Entrar">
 
-  <div class="row">
-	        	<div class="col-md-6">
-    <label for="tel">Telefono:</label>
-    <input type="tel" id="telefono" name="telefono" class="form-control" required>
-  </div>
 
-  <div class="row">
-    <div class="col-md-12">
-        <label for="usuario">Tipo Usuario:</label>
-        <select id="usuario" name="usuario" class="form-control" required>
-            <option value="administrador">Administrador</option>
-            <option value="cliente">Cliente</option>
-            <!-- Puedes agregar más opciones según sea necesario -->
-        </select>
-    </div>
+<br>
+
+      <!-- Por ejemplo, en tu página de inicio de sesión (login.html) -->
+<a href="recuperar_contrasena.php"><i class="fa fa-question-circle"></i> ¿Olvidaste tu contraseña?</a>
+
+
+        <!-- Enlace para mostrar el formulario de registro -->
+        <p>¿No tienes una cuenta? <a href="registro.php" id="showRegister"><i class="fa fa-user-plus"></i>Regístrate aquí</a></p>
+    </form>
 </div>
 
+  
 
-  <div class="row">
-	        	<div class="col-md-6">
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" class="form-control" required>
-  </div>
-
-  <div class="row">
-	        	<div class="col-md-12">
-    <label for="password">Contraseña:</label>
-    <input type="password" id="password" name="password" class="form-control" required>
-  </div>
-
-  <div class="row">
-	        	<div class="col-md-12">
-    <input type="submit" name="submit" value="Registrar">
-  </div>
-</form>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-</body>
+    </body>
 </html>
